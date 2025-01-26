@@ -109,17 +109,48 @@ const createMeshWithTexture = (path, angle, radius) => {
 const radius = 30; // 円の半径
 const itemCount = 12; // 配置するアイテムの数
 
+import texture01 from "../images/texture/texture01.jpg";
+import texture02 from "../images/texture/texture02.jpg";
+import texture03 from "../images/texture/texture03.jpg";
+import texture04 from "../images/texture/texture04.jpg";
+import texture05 from "../images/texture/texture05.jpg";
+import texture06 from "../images/texture/texture06.jpg";
+import texture07 from "../images/texture/texture07.jpg";
+import texture08 from "../images/texture/texture08.jpg";
+import texture09 from "../images/texture/texture09.jpg";
+import texture10 from "../images/texture/texture10.jpg";
+import texture11 from "../images/texture/texture11.jpg";
+// 必要な分だけインポートを追加していく
+
+// 画像を配列に格納
+const textures = [
+  texture01,
+  texture02,
+  texture03,
+  texture04,
+  texture05,
+  texture06,
+  texture07,
+  texture08,
+  texture09,
+  texture10,
+  texture11,
+  // 必要に応じて画像を追加
+];
+
 // メッシュを円形に配置
-for (let i = 0; i < itemCount; i++) {
-  const texturePath = `src/images/texture/texture${String(i + 1).padStart(2, "0")}.jpg`;
-  const angle = (i / itemCount) * Math.PI * 2; // 配置の角度
-  createMeshWithTexture(texturePath, angle, radius);
+for (let i = 0; i < textures.length; i++) {
+  const texturePath = textures[i]; // 事前にインポートした画像パスを使用
+  const angle = (i / textures.length) * Math.PI * 2; // 配置の角度
+  createMeshWithTexture(texturePath, angle, radius); // ロード済みテクスチャを渡す
 }
+
 
 
 // 背景
 const bgTextureLoader = new THREE.TextureLoader();
-const bgTexture = bgTextureLoader.load("src/images/bg.png");
+import bgImg from "../images/bg.png"
+const bgTexture = bgTextureLoader.load(bgImg);
 scene.background = bgTexture;
 
 
@@ -141,9 +172,9 @@ const particlesGeometry = new THREE.BufferGeometry();
 const particlesCount = 500;
 const positionArray = new Float32Array(particlesCount * 3);
 const velocityArray = new Float32Array(particlesCount * 3); // 各パーティクルの速度
-
+import particleBg from "../images/texture/particle.png"
 const textureLoader = new THREE.TextureLoader();
-const particleTexture = textureLoader.load("src/images/texture/particle.png");
+const particleTexture = textureLoader.load(particleBg);
 
 const speedMultiplier = 0.05; // 速度
 
@@ -240,140 +271,4 @@ function onResize() {
 };
 
 animate();
-
-
-// import { gsap } from "gsap";
-// gsap.to(camera.position, {
-//   x: 2,
-//   y: 8,
-//   z: 5
-// })
-
-
-
-
-
-// let scene, camera, renderer, pointLight, controls, ballMesh;
-
-
-// // でバック
-// const gui = new GUI();
-
-
-// window.addEventListener("load", init())
-// function init(){
-//     scene = new THREE.Scene();
-//     // bubble_bg
-    
-    
-//     camera = new THREE.PerspectiveCamera(
-//         75, //視野角
-//         window.innerWidth / window.innerHeight, //アスペクト比 .loadにいれたい
-//         0.1, //開始距離
-//         1000 //終了距離
-//     )
-//     camera.position.set(0, 0, 500)
-    
-//     // レンダラー
-//     renderer = new THREE.WebGLRenderer({alpha: true})
-//     renderer.setSize(window.innerWidth, window.innerHeight)
-//     renderer.setPixelRatio(window.devicePixelRatio)
-//     document.getElementById('bubble_bg').appendChild(renderer.domElement)
-    
-//     // テクスチャ
-//     let textures = new THREE.TextureLoader().load("./textures/earth.jpg")
-    
-    
-//     // ジオメトリ
-//     let ballGeometry = new THREE.SphereGeometry( 20,1,1 ); 
-    
-//     // マテリアル
-//     let ballMaterial = new THREE.MeshPhysicalMaterial({
-//         color: "red",
-//         // transparent: true,
-//         // opacity: 0.5,
-//     })
-//     // let ballMaterial = new THREE.MeshPhysicalMaterial({ map: textures})
-
-//     // 両面見えるように
-//     // ballMaterial.side = THREE.DoubleSide
-
-//     //メッシュ化
-//     ballMesh = new THREE.Mesh(ballGeometry, ballMaterial)
-    
-//     scene.add(ballMesh)
-
-//     // デバッグ
-//     const positionFolder = gui.addFolder("position")
-//     positionFolder.add(ballMesh.position, "x" ).min(-100).max(100).step(0.01).name("transformX")
-//     positionFolder.add(ballMesh.position, "y" ).min(-100).max(100).step(0.01).name("transformY")
-//     positionFolder.add(ballMesh.position, "z" ).min(-100).max(100).step(0.01).name("transformZ")
-
-//     gui.add(ballMesh, "visible")
-//     gui.add(ballMaterial, "wireframe")
-//     gui.addColor(ballMaterial, "color")
-    
-//     let ambientLight = new THREE.AmbientLight(0xffffff, 1)
-//     scene.add(ambientLight)
-
-//     // 平行光源
-//     let directionalLight = new THREE.DirectionalLight(0xffffff, 2)
-//     directionalLight.position.set(1,1,100)
-//     scene.add(directionalLight)
-    
-//     let directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 100)
-//     scene.add(directionalLightHelper)
-    
-    
-//     // ポイント光源
-//     // pointLight = new THREE.PointLight(0xffffff, 1);
-//     // pointLight.position.set(-200, -200, -200);
-     
-//     // // 以下の２行をscene.add(pointLight)の前に追加
-//     // pointLight.decay = 1;
-//     // pointLight.power = 1000;
-     
-//     // scene.add(pointLight);
-    
-//     // //ポイント光源がどこにあるか特定する
-//     // let pointLightHelper = new THREE.PointLightHelper(pointLight, 30)
-//     // scene.add(pointLightHelper)
-    
-    
-//     // マウス操作
-//     controls = new OrbitControls(camera, renderer.domElement)
-    
-//     window.addEventListener('resize', onResize);
-//     animate()
-// }
-
-
-// // リサイズ
-// function onResize() {
-//     // サイズを取得
-//     const width = window.innerWidth;
-//     const height = window.innerHeight;
-  
-//     // レンダラーのサイズを調整する
-//     renderer.setPixelRatio(window.devicePixelRatio);
-//     renderer.setSize(width, height);
-  
-//     // カメラのアスペクト比を正す
-//     camera.aspect = width / height;
-//     camera.updateProjectionMatrix();
-//   }
-// function animate(){
-// // ポイント光源を巡回
-//     // pointLight.position.set(
-//     //     200 * Math.sin(Date.now() / 500),
-//     //     200 * Math.sin(Date.now() / 1000),
-//     //     200 * Math.cos(Date.now() / 500),
-//     // )
-//     requestAnimationFrame(animate)
-
-//     // レンダリング
-//     renderer.render(scene, camera);
-// }
-
-
 
