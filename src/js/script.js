@@ -233,14 +233,14 @@ particlesJS("particles", {
 
 // パーティクルのカウントやパフォーマンスをモニタリング
 var count_particles, stats, update;
-
+import Stats from 'stats.js';
 // パフォーマンスモニタリング用のStats.jsオブジェクトを作成
 stats = new Stats();
 stats.setMode(0); // モード0はフレームレート表示
 stats.domElement.style.position = "absolute";
 stats.domElement.style.left = "0px";
 stats.domElement.style.top = "0px";
-document.body.appendChild(stats.domElement);
+
 
 // パーティクルの数を表示する要素を取得
 count_particles = document.querySelector(".js-count-particles");
