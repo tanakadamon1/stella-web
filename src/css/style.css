@@ -104,7 +104,7 @@ main .wrapper::before, main .wrapper::after {
 }
 main .wrapper::before {
   z-index: -3;
-  background-image: url(../images/bg_stella.png);
+  background-image: url(/public/images/bg_stella.png);
   background-size: cover;
   background-position: center center;
 }
@@ -214,19 +214,19 @@ main .nav nav ul li a::before {
   min-width: 30px;
 }
 main .nav nav ul li a.profile_icon::before {
-  background: url(../images/profile_icon.svg) no-repeat left center/100% 100%;
+  background: url(/public/images/profile_icon.svg) no-repeat left center/100% 100%;
 }
 main .nav nav ul li a.costume_icon::before {
-  background: url(../images/costume_icon.svg) no-repeat left center/100% 100%;
+  background: url(/public/images/costume_icon.svg) no-repeat left center/100% 100%;
 }
 main .nav nav ul li a.youtube_icon::before {
-  background: url(../images/youtube_icon.svg) no-repeat left center/100% 100%;
+  background: url(/public/images/youtube_icon.svg) no-repeat left center/100% 100%;
 }
 main .nav nav ul li a.world_icon::before {
-  background: url(../images/world_icon.svg) no-repeat left center/100% 100%;
+  background: url(/public/images/world_icon.svg) no-repeat left center/100% 100%;
 }
 main .nav nav ul li a.twitter_icon::before {
-  background: url(../images/twitter_icon.svg) no-repeat left center/100% 100%;
+  background: url(/public/images/twitter_icon.svg) no-repeat left center/100% 100%;
 }
 main .nav nav ul li a span {
   padding-left: 8px;
@@ -603,40 +603,40 @@ section .section_inner_world {
   }
 }
 .swiper_costome_top .custom-bullet:nth-of-type(1) {
-  background-image: url(../images/costume_icon_1.png);
+  background-image: url(/public/images/costume_icon_1.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(2) {
-  background-image: url(../images/costume_icon_2.png);
+  background-image: url(/public/images/costume_icon_2.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(3) {
-  background-image: url(../images/costume_icon_3.png);
+  background-image: url(/public/images/costume_icon_3.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(4) {
-  background-image: url(../images/costume_icon_4.png);
+  background-image: url(/public/images/costume_icon_4.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(5) {
-  background-image: url(../images/costume_icon_5.png);
+  background-image: url(/public/images/costume_icon_5.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(6) {
-  background-image: url(../images/costume_icon_6.png);
+  background-image: url(/public/images/costume_icon_6.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(7) {
-  background-image: url(../images/costume_icon_7.png);
+  background-image: url(/public/images/costume_icon_7.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(8) {
-  background-image: url(../images/costume_icon_8.png);
+  background-image: url(/public/images/costume_icon_8.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(9) {
-  background-image: url(../images/costume_icon_9.png);
+  background-image: url(/public/images/costume_icon_9.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(10) {
-  background-image: url(../images/costume_icon_10.png);
+  background-image: url(/public/images/costume_icon_10.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(11) {
-  background-image: url(../images/costume_icon_11.png);
+  background-image: url(/public/images/costume_icon_11.png);
 }
 .swiper_costome_top .custom-bullet:nth-of-type(12) {
-  background-image: url(../images/costume_icon_12.png);
+  background-image: url(/public/images/costume_icon_12.png);
 }
 .swiper_costome_top .custom-bullet-active {
   overflow: hidden;
@@ -743,7 +743,7 @@ img {
   width: 24px;
   height: 24px;
   position: absolute;
-  background-image: url(../images/arrow.svg);
+  background-image: url(/public/images/arrow.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

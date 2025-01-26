@@ -109,17 +109,17 @@ const createMeshWithTexture = (path, angle, radius) => {
 const radius = 30; // 円の半径
 const itemCount = 12; // 配置するアイテムの数
 
-import texture01 from "../images/texture/texture01.jpg";
-import texture02 from "../images/texture/texture02.jpg";
-import texture03 from "../images/texture/texture03.jpg";
-import texture04 from "../images/texture/texture04.jpg";
-import texture05 from "../images/texture/texture05.jpg";
-import texture06 from "../images/texture/texture06.jpg";
-import texture07 from "../images/texture/texture07.jpg";
-import texture08 from "../images/texture/texture08.jpg";
-import texture09 from "../images/texture/texture09.jpg";
-import texture10 from "../images/texture/texture10.jpg";
-import texture11 from "../images/texture/texture11.jpg";
+import texture01 from "/public/images/texture/texture01.jpg";
+import texture02 from "/public/images/texture/texture02.jpg";
+import texture03 from "/public/images/texture/texture03.jpg";
+import texture04 from "/public/images/texture/texture04.jpg";
+import texture05 from "/public/images/texture/texture05.jpg";
+import texture06 from "/public/images/texture/texture06.jpg";
+import texture07 from "/public/images/texture/texture07.jpg";
+import texture08 from "/public/images/texture/texture08.jpg";
+import texture09 from "/public/images/texture/texture09.jpg";
+import texture10 from "/public/images/texture/texture10.jpg";
+import texture11 from "/public/images/texture/texture11.jpg";
 // 必要な分だけインポートを追加していく
 
 // 画像を配列に格納
@@ -149,7 +149,7 @@ for (let i = 0; i < textures.length; i++) {
 
 // 背景
 const bgTextureLoader = new THREE.TextureLoader();
-import bgImg from "../images/bg.png"
+import bgImg from "/public/images/bg.png"
 const bgTexture = bgTextureLoader.load(bgImg);
 scene.background = bgTexture;
 
@@ -172,11 +172,13 @@ const particlesGeometry = new THREE.BufferGeometry();
 const particlesCount = 500;
 const positionArray = new Float32Array(particlesCount * 3);
 const velocityArray = new Float32Array(particlesCount * 3); // 各パーティクルの速度
-import particleBg from "../images/texture/particle.png"
+import particleBg from "/public/images/texture/particle.png"
 const textureLoader = new THREE.TextureLoader();
 const particleTexture = textureLoader.load(particleBg);
 
 const speedMultiplier = 0.05; // 速度
+
+
 
 // ランダムな位置と速度を設定
 for (let i = 0; i < particlesCount * 3; i++) {
