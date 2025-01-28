@@ -222,7 +222,7 @@ const animateParticles = () => {
 
 
 
-// マウスドラッグでグループ回転
+// マウス/タッチでグループを回転
 let isDragging = false;
 let previousMouseX = 0;
 
@@ -237,12 +237,43 @@ canvas.addEventListener("mousemove", (event) => {
   previousMouseX = event.clientX;
 
   // グループを回転
-  group.rotation.y += deltaX * 0.01;
+  group.rotation.y += deltaX * 0.001;
 });
 
 canvas.addEventListener("mouseup", () => {
   isDragging = false;
 });
+
+canvas.addEventListener("mouseleave", () => {
+  isDragging = false;
+});
+
+
+// SP用
+canvas.addEventListener("touchstart", (event) => {
+  isDragging = true;
+
+  previousMouseX = event.touches[0].clientX;
+});
+
+canvas.addEventListener("touchmove", (event) => {
+  if (!isDragging) return;
+  // 現在の位置
+  const currentTouchX = event.touches[0].clientX;
+  const deltaX = currentTouchX - previousMouseX;
+  previousMouseX = currentTouchX;
+
+  // グループを回転
+  group.rotation.y += deltaX * 0.001;
+
+  // スクロールを無効化
+  event.preventDefault();
+});
+
+canvas.addEventListener("touchend", () => {
+  isDragging = false;
+});
+
 
 
 // リサイズ

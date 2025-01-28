@@ -690,6 +690,12 @@ img {
   pointer-events: none;
   position: relative;
 }
+@media screen and (max-width: 768px) {
+  .load .load_box {
+    width: 80%;
+    gap: 16px;
+  }
+}
 .load .load_box::before {
   border: solid 3px #3E9BC3;
   border-radius: 4px;
@@ -710,6 +716,11 @@ img {
   position: relative;
   overflow: hidden;
   z-index: 16;
+}
+@media screen and (max-width: 768px) {
+  .load .load_box .bar {
+    width: 80%;
+  }
 }
 .load .load_box .bar .now {
   width: 300px;
