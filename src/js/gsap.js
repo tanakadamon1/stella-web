@@ -117,8 +117,14 @@ window.addEventListener("DOMContentLoaded", () => {
         rotateY: 180,
     }, "-=1.8" );
 
+
+    setTimeout(() => {
+        load_end();
+      }, 5000); // 1秒待機してから実行
+
+
 });
-window.addEventListener("load", () => {
+function load_end() {
     const tl_load_box = gsap.timeline();
     tl_load_box.to('.load', {
         autoAlpha: 1
@@ -135,7 +141,7 @@ window.addEventListener("load", () => {
         x: 0
     });
     tl_load_box.add(tl_load_nav);
-})
+}
 
 
 
