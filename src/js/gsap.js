@@ -150,23 +150,45 @@ function load_end() {
 const nav = document.querySelector(".nav");
 const navBtn = document.querySelector(".nav_btn");
 const navSpan = document.querySelectorAll(".nav_btn span");
+const navLinks = document.querySelectorAll(".nav a"); 
 
 let isMenuOpen = false;
 
+// 開く閉じる
 navBtn.addEventListener("click", () => {
-if (!isMenuOpen) {
+  toggleNav();
+});
+
+function toggleNav() {
+  if (!isMenuOpen) {
     gsap.to(nav, { x: "250", duration: 0.5, ease: "power2.out" });
     gsap.to(navSpan[0], { rotateZ: -45, translateX: -6, duration: 0.5, ease: "power2.out" });
     gsap.to(navSpan[1], { opacity: 0, duration: 0.5, ease: "power2.out" });
     gsap.to(navSpan[2], { rotateZ: 45, translateX: -6, duration: 0.5, ease: "power2.out" });
-} else {
-    gsap.to(nav, { x: "0", duration: 0.5, ease: "power2.in" });
-    gsap.to(navSpan[0], { rotateZ: 0, translateX: 0, duration: 0.5, ease: "power2.in" });
-    gsap.to(navSpan[1], { opacity: 1, duration: 0.5, ease: "power2.in" });
-    gsap.to(navSpan[2], { rotateZ: 0, translateX: 0, duration: 0.5, ease: "power2.in" });
+  } else {
+    closeNav();
+  }
+  isMenuOpen = !isMenuOpen;
 }
-isMenuOpen = !isMenuOpen;
+
+// 閉じる
+function closeNav() {
+  gsap.to(nav, { x: "0", duration: 0.5, ease: "power2.in" });
+  gsap.to(navSpan[0], { rotateZ: 0, translateX: 0, duration: 0.5, ease: "power2.in" });
+  gsap.to(navSpan[1], { opacity: 1, duration: 0.5, ease: "power2.in" });
+  gsap.to(navSpan[2], { rotateZ: 0, translateX: 0, duration: 0.5, ease: "power2.in" });
+  isMenuOpen = false;
+}
+
+// 飛んだ時に閉じる
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (isMenuOpen) {
+      closeNav();
+    }
+  });
 });
+
 
 
 
