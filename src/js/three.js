@@ -266,8 +266,6 @@ canvas.addEventListener("touchmove", (event) => {
   // グループを回転
   group.rotation.y += deltaX * 0.001;
 
-  // スクロールを無効化
-  event.preventDefault();
 });
 
 canvas.addEventListener("touchend", () => {
