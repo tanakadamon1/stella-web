@@ -484,7 +484,7 @@ section .section_inner_world {
 }
 
 .swiper-slide img {
-  width: 90%;
+  width: 100%;
   height: 90%;
 }
 @media screen and (max-width: 768px) {
